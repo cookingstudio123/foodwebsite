@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cooking Studio - Authentic Home Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" type="image/x-icon" href="https://images.app.goo.gl/qA3gG5AmjXRd5kvg8">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #e74c3c;
+            --secondary: #f39c12;
+            --accent: #27ae60;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: #e67e22;
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        h2 {
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(44, 62, 80, 0.95);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            margin-bottom: 0;
+            color: white;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+            font-weight: 800;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin-left: 15px;
+            color: var(--light);
+            font-size: 0.9rem;
+            border-left: 2px solid var(--secondary);
+            padding-left: 15px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after, 
+        nav ul li a.active:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        /* Special Offers */
+        .offers-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 35px 25px;
+            text-align: center;
+            width: 280px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .offer-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+        }
+        
+        .offer-icon {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .offer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Menu Section */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 2px solid var(--secondary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-item-content {
+            padding: 25px;
+        }
+        
+        .menu-item h3 {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .menu-item p {
+            color: #777;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        .category-label {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Weekly Meal Plan */
+        .week-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .week-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .week-btn.active, .week-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .meal-plan {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .plan-header {
+            display: grid;
+            grid-template-columns: 100px repeat(7, 1fr);
+            background: var(--dark);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .plan-header div {
+            padding: 18px 10px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .plan-header div:last-child {
+            border-right: none;
+        }
+        
+        .plan-row {
+            display: grid;
+            grid-template-columns: 100px repeat(7, 1fr);
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+        }
+        
+        .plan-row:hover {
+            background: rgba(243, 156, 18, 0.05);
+        }
+        
+        .plan-row:last-child {
+            border-bottom: none;
+        }
+        
+        .plan-row div {
+            padding: 18px 10px;
+            text-align: center;
+        }
+        
+        .week-number {
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Service Area */
+        .service-areas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .area-badge {
+            background: var(--accent);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(231, 76, 60, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ddd;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .rating {
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            min-width: 20px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #e67e22;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .plan-header, .plan-row {
+                grid-template-columns: 80px repeat(4, 1fr);
+            }
+            
+            .week-number {
+                grid-column: span 4;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .tagline {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                margin-top: 5px;
+            }
+            
+            .plan-header, .plan-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-number {
+                grid-column: span 1;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>The <span>Cooking</span> Studio</h1>
+                    <div class="tagline">"Jaisa Ghar Ka Swaad, Waisa Kahi Nahin!"</div>
+                </div>
+<nav>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#meal-plan">Weekly Plan</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#services">Service Area</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Khana <span>Ghr Sy</span> Ghr Tak</h1>
+                <p>Serving authentic homemade flavors straight to your doorstep. Experience the taste that feels like home!</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn">Explore Menu</a>
+                    <a href="#meal-plan" class="btn btn-secondary">Weekly Meal Plan</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="offers">
+        <div class="container">
+            <h2>Special Offers</h2>
+            <p class="section-subtitle">Enjoy these exclusive deals and discounts on our delicious homemade food</p>
+            
+            <div class="offers-container">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>First Order Discount</h3>
+                    <p>Flat 10% OFF on your first order</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Delivery</h3>
+                    <p>Within 3km of Allama Iqbal Town</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Refer & Earn</h3>
+                    <p>Refer a family, get Rs. 300 off your next order</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Office Subscription</h3>
+                    <p>Weekly office box subscriptions - Get 1 lunch FREE every Friday!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-subtitle">Explore our delicious range of homemade dishes prepared with authentic recipes and fresh ingredients</p>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="main">Main Course</button>
+                <button class="category-btn" data-category="rice">Rice</button>
+                <button class="category-btn" data-category="dish">Dish</button>
+                <button class="category-btn" data-category="handi">Desi Handi</button>
+                <button class="category-btn" data-category="fastfood">Fast Food</button>
+                 <button class="category-btn" data-category="Shawarma">Shawarma</button>
+                 <button class="category-btn" data-category="Pasta & Chinese special">Pasta & Chinese special</button>
+                <button class="category-btn" data-category="event">Event Packages</button>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Main Course -->
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://i2.wp.com/chiselandfork.com/wp-content/uploads/2021/01/chicken-karahi-1.jpg" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Karahi <span class="price">Rs. 1850/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken White Karahi <span class="price">Rs. 1900/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://i.ytimg.com/vi/Jy8QeHwQGeQ/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Special Butter Chicken Kadai <span class="price">Rs. 2050/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://cookwithfaiza.net/wp-content/uploads/2024/03/1392635046_DEGI_KORMA___COOK_WITH_FAIZA.png" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Degi Chicken Korma <span class="price">Rs. 1800/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1617692855027-33b14f061079?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Shahi Chicken Kadai <span class="price">Rs. 2250/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse2.mm.bing.net/th?id=OIP.JPsyrcXFiQwgpvn2_sDRVQHaFj&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Green Chilli Chicken Kadai <span class="price">Rs. 2100/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse2.mm.bing.net/th?id=OIP.oP2zPEMC1fiSxfDfF1gOwAHaE-&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Black paper karahi <span class="price">Rs. 2100/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Aloo Gravy <span class="price">Rs. 1500/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img" ><img style="width: 400px; height: 200px;" src="https://i.ytimg.com/vi/AsjvRc0Ouwg/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Ginger garlic chicken karahi <span class="price">Rs. 2000/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse1.mm.bing.net/th?id=OIP.wUYVnXyD-UeupK39-gMgIAHaEC&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Cheese chicken karahi<span class="price">Rs. 2250/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1612927601601-6638404737ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Nihari <span class="price">Rs. 2000/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="main">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://tse4.mm.bing.net/th?id=OIP.rd8e026q8W6Hl55nv9tVJQHaE6&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Main Course</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Haleem<span class="price">Rs. 1500/kg</span></h3>
+                    </div>
+                </div>
+                
+                <!-- Rice -->
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Biryani <span class="price">Rs. 1950/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img"><img style="width: 350px; height: 200px;" src="https://tse3.mm.bing.net/th?id=OIP.5kSqqv-8YQwHGUTNKXYcJgHaFj&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Chana Palao <span class="price">Rs. 1500/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Vegetable Palao <span class="price">Rs. 1250/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img"><img src="https://tse1.mm.bing.net/th?id=OIP.yFRmVC97hAa7LBZnMXjCvQHaE7&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Chinese rice <span class="price">Rs. 1550/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img"><img src="https://tse3.mm.bing.net/th?id=OIP.INnnQQ6r2cdUw44FWgmN7QHaEK&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Egg fried rice <span class="price">Rs. 1650/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Rice</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Pulao <span class="price">Rs. 1850/kg</span></h3>
+                    </div>
+                </div>
+                
+                <!-- dish -->
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse2.mm.bing.net/th?id=OIP.lPl7z1ifukAVyeFNGZpV2wHaLH&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Spaghetti <span class="price">Rs. 1700</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.61gcGFoO0gw3tfzORWCcfwHaLH&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Macaroni <span class="price">Rs. 1700</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://tse4.mm.bing.net/th?id=OIP._Trfwuj0wf147xSLi9hZLwHaLH&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Chow Mein <span class="price">Rs. 1750</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+            <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://tse1.mm.bing.net/th?id=OIP.eY7Is-lfsEJmeNib2qLQBwHaHa&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Manchurian <span class="price">Rs. 1850</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://tse2.mm.bing.net/th?id=OIP.11e6STz9nhpCuCrslujkHQHaHJ&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Chilli dry <span class="price">Rs. 1850</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://i.ytimg.com/vi/xDfONJ3jm7Y/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Dynamite <span class="price">Rs. 1900</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://lilluna.com/wp-content/uploads/2017/10/penne-pasta-resize-3.jpg" alt=""></div>
+                    <div class="category-label">Dish</div>
+                    <div class="menu-item-content">
+                        <h3>White Sauce pasta <span class="price">Rs. 1700</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img style="height: 200px; width: 400px;" src="https://tse2.mm.bing.net/th?id=OIP.3cZhhQWGY3CzPR-tuBJaIwHaE8&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Dish</div>
+                    <div class="menu-item-content">
+                        <h3>Creamy White Sauce Pasta <span class="price">Rs. 1750</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img"><img src="https://tse3.mm.bing.net/th?id=OIP.1kBbAmxI47oAsMfqxINffwHaEK&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken cheese cream macaroni <span class="price">Rs. 1850</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dish">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">dish</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken tomato pasta <span class="price">Rs. 1700</span></h3>
+                        <p>With french fries</p>
+                    </div>
+                </div>
+                
+                <!-- Desi Handi Specials -->
+                <div class="menu-item" data-category="handi">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Desi Handi</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken White Karahi <span class="price">Rs. 1999/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="handi">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1617692855027-33b14f061079?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Desi Handi</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Hara Masala <span class="price">Rs. 2250/kg</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="handi">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://i.ytimg.com/vi/snwmGtnI92Y/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">Desi Handi</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Masala Kabab <span class="price">Rs. 1950/kg</span></h3>
+                    </div>
+                </div>
+                    <div class="menu-item" data-category="handi">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://www.healthylifetrainer.com/wp-content/uploads/2020/11/Grilled-Chicken-Kofta-9.jpg" alt=""></div>
+                    <div class="category-label">Desi Handi</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken kofta <span class="price">Rs. 1750/kg</span></h3>
+                    </div>
+                </div>
+                <!--fast food-->
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://i.pinimg.com/originals/51/6e/87/516e870c267eac9a04c6f98be8ce0465.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Cheese Burger <span class="price">Rs. 380</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.bUrdRV_sI93RkIxPQc7hnAHaFj&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Tikka Burger <span class="price">Rs. 400</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://www.kitchensanctuary.com/wp-content/uploads/2019/08/Crispy-Chicken-Burger-square-FS-4518.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Burger <span class="price">Rs. 350</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse1.mm.bing.net/th?id=OIP.BrRGlm7hXaww0GhI-Pc0_gHaEZ&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Zinger Burger <span class="price">Rs. 350</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.lWRf_TgkUGQu5RqC0WWhxgHaEK&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Shami Burger <span class="price">Rs. 130</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://i.ytimg.com/vi/ZqrmLxF_9mM/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Patti Burger <span class="price">Rs. 230</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://img.freepik.com/premium-photo/image-double-patty-chicken-cheese-burger_955543-408.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Double Patti Burger & Cheese<span class="price">Rs. 350</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse1.mm.bing.net/th?id=OIP.fFMEVLx36YIz9pDHqlEJHgHaFP&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Allo Tikki Special Burger <span class="price">Rs. 180</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://greatcurryrecipes.net/wp-content/uploads/2021/07/pburger10-735x919.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Peri Peri Burger <span class="price">Rs. 480</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse1.mm.bing.net/th?id=OIP.5N-v-fQ2oi2vs4mH6TLnUAHaHa&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Wrap <span class="price">Rs. 350</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://www.thecountrycook.net/wp-content/uploads/2021/02/thumbnail-Buffalo-Chicken-Wraps-scaled.jpg" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Spicy Cream Wrap <span class="price">Rs. 480</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="fastfood">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.Kw3frtWSONZ0TNq9i0LoKwHaEK&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Fast Food</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Paratha Roll <span class="price">Rs. 380</span></h3>
+                    </div>
+                </div>
+                <!-- shawarma specials-->
+                <div class="menu-item" data-category="Shawarma">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.5AT39p5w7-_Z36gsnaMcOgHaHa&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Shawarma</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Shawarma <span class="price">Rs. 200</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="Shawarma">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse4.mm.bing.net/th?id=OIP.ov9xGzJ5OnmGVjHZ0dCc4AHaEK&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">Shawarma</div>
+                    <div class="menu-item-content">
+                        <h3>Spicy Chicken Shawarma <span class="price">Rs. 200</span></h3>
+                    </div>
+                </div>
+                <!-- pasta & chinese special-->
+                 <div class="menu-item" data-category="Pasta & Chinese special">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://i.ytimg.com/vi/1CbZPtPyHvQ/maxresdefault.jpg" alt=""></div>
+                    <div class="category-label">pasta & chinese special</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Macaroni <span class="price">Rs. 450</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="Pasta & Chinese special">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://tse1.mm.bing.net/th?id=OIP.YT0Rh968ILubHS13o6mHFAHaFS&pid=Api&P=0&h=220" alt=""></div>
+                    <div class="category-label">pasta & chinese special</div>
+                    <div class="menu-item-content">
+                        <h3>White Sauce Pasta <span class="price">Rs. 480</span></h3>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="Pasta & Chinese special">
+                    <div class="menu-item-img"><img style="width: 400px; height: 200px;" src="https://jackslobodian.com/wp-content/uploads/2021/03/Chicken-Chow-Mein-5.jpg" alt=""></div>
+                    <div class="category-label">pasta & chinese special</div>
+                    <div class="menu-item-content">
+                        <h3>Chicken Chow Mein <span class="price">Rs. 380</span></h3>
+                    </div>
+                </div>
+                <!-- Event Packages -->
+                <div class="menu-item" data-category="event">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Event Package</div>
+                    <div class="menu-item-content">
+                        <h3>Family Feast <span class="price">Rs. 4500-6000</span></h3>
+                        <p>10-12 servings | 2 Rice + 1 Curry + 1 Chinese Dish</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="event">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Event Package</div>
+                    <div class="menu-item-content">
+                        <h3>Birthday Special <span class="price">Rs. 7500-9500</span></h3>
+                        <p>15-20 servings | 2 Chinese + 1 Pasta + 1 Rice</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="event">
+                    <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="category-label">Event Package</div>
+                    <div class="menu-item-content">
+                        <h3>Corporate Lunch <span class="price">On Order</span></h3>
+                        <p>20+ servings | Customizable menu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Meal Plan -->
+    <section id="meal-plan">
+        <div class="container">
+            <h2>Weekly Meal Plans</h2>
+            <p class="section-subtitle">Our carefully curated meal plans for the month (1 KG = 4 to 5 servings)</p>
+            
+            <div class="week-selector">
+                <button class="week-btn active" data-week="1">Week 1</button>
+                <button class="week-btn" data-week="2">Week 2</button>
+                <button class="week-btn" data-week="3">Week 3</button>
+                <button class="week-btn" data-week="4">Week 4</button>
+            </div>
+            
+            <div class="meal-plan">
+                <div class="plan-header">
+                    <div>Week</div>
+                    <div>Monday</div>
+                    <div>Tuesday</div>
+                    <div>Wednesday</div>
+                    <div>Thursday</div>
+                    <div>Friday</div>
+                    <div>Saturday</div>
+                    <div>Sunday</div>
+                </div>
+                
+                <!-- Week 1 -->
+                <div class="plan-row week-1">
+                    <div class="week-number">Week 1</div>
+                    <div>Alo Chicken Gravy with 2 Roti and Salad<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/EgiYoi9TWJo/hqdefault.jpg" alt="">
+                    </div>
+                    <div>Sabzi with 2 Roti and Raita<br><br>
+                        <img style="width: 140px; height: 100px;" src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sneha-archanaskitchen.com/Meal_Plate_Palak_Methi_Soya_Sabzi_Aloo_Jeera_Pom_Mint_Raita_Jowar_Phulka_Beet_Carrot_Salad-2.jpg" alt="">
+                    </div>
+                    <div>Dal Chawal with Salad<br><br>
+                        <img style="width: 140px; height: 100px;" src="https://i.ytimg.com/vi/jJqZM0_zQTQ/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Alo Kofta with 2 Roti<br><br>
+                        <img style="width: 140px; height: 100px;" src="https://i.ytimg.com/vi/EhEsXaFSJ3w/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Chicken Biryani with Raita Salad<br><br>
+                        <img style="width: 140px; height: 100px;" src="https://tse2.mm.bing.net/th?id=OIP.AF368khU13zeGsaNxCXbZQHaEK&pid=Api&P=0&h=220" alt="">
+                    </div>
+                    <div>Dal Mash with 2 Roti<br><br>
+                        <img style="width: 140px; height: 100px;" src="https://i.ytimg.com/vi/YXhkMKbEiO4/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Curry Chawal or 2 Roti<br><br>
+                        <img  style="width: 140px; height: 100px;" src="https://i.ytimg.com/vi/XpQ3NMU7t-s/maxresdefault.jpg" alt="">
+                    </div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="plan-row week-2" style="display: none;">
+                    <div class="week-number">Week 2</div>
+                    <div>Chicken Sabzi with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/QjWyTQxTKUw/hqdefault.jpg" alt="">
+                    </div>
+                    <div>Haleem Chawal or 2 Roti <br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/nj_hCPrXkws/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Sabzi with 2 Roti <br><br>
+                        <img style="height: 100px; width: 140px;" src="https://tse3.mm.bing.net/th?id=OIP.ko7PRd-HcOtzBf8SEH4RkwHaHa&pid=Api&P=0&h=220" alt="">
+                    </div>
+                    <div>Chicken Shami with 2 Roti, Salad & Raita <br><br>
+                        <img style="height: 100px; width: 140px;" src="https://tse4.mm.bing.net/th?id=OIP.8tUutdYrLp3krxvmjYE5OAAAAA&pid=Api&P=0&h=220" alt="">
+                    </div>
+                    <div>Chicken Palao with Mint Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.pinimg.com/originals/e6/70/88/e67088092fe7276af7e6e160ea280559.jpg" alt="">
+                    </div>
+                    <div>Masala Kabab with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://tse3.mm.bing.net/th?id=OIP.IC9VpESEq4rW8wlIib9iewHaEK&pid=Api&P=0&h=220" alt="">
+                    </div>
+                    <div>Dal with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://www.mapsofindia.com/ci-moi-images/my-india/Daal-Roti.jpg" alt="">
+                    </div>
+                </div>
+                
+                <!-- Week 3 -->
+                <div class="plan-row week-3" style="display: none;">
+                    <div class="week-number">Week 3</div>
+                    <div>Curry Pakora with Chawal or 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://img.freepik.com/premium-photo/north-india-s-popular-food-kadhi-pakoda-pakora-with-laccha-paratha-roti-cooked-basmati-rice_466689-63005.jpg" alt="">
+                    </div>
+                    <div>Dal Chawal<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://tse2.mm.bing.net/th?id=OIP.fyf-uuOH4iQbRsLGkm16MwHaE7&pid=Api&P=0&h=220" alt="">
+                    </div>
+                    <div>Sabzi with 2 Roti and Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://simikrao.files.wordpress.com/2014/07/p1000967.jpg?w=768" alt="">
+                    </div>
+                    <div>Chicken Karahi with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://devteamcfh.s3.amazonaws.com/wp-content/uploads/2022/01/22093245/2-1.png" alt="">
+                    </div>
+                    <div>Chana Palao with Mint Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://www.funfoodfrolic.com/wp-content/uploads/2020/07/Chana-Pulao-3-585x878.jpg" alt="">
+                    </div>
+                    <div>Dal with 2 Roti and Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://www.mapsofindia.com/ci-moi-images/my-india/Daal-Roti.jpg" alt="">
+                    </div>
+                    <div>Anda Chana with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/YHR-0gLNZqw/maxresdefault.jpg" alt="">
+                    </div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="plan-row week-4" style="display: none;">
+                    <div class="week-number">Week 4</div>
+                    <div>Alo Qeema<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://butteroverbae.com/wp-content/uploads/2022/10/aloo-keema-close-up-1-1024x1024.jpg" alt="">
+                    </div>
+                    <div>Dal Chawal<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/8gJgnrxpKUw/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Sabzi with 2 Roti and Raita <br><br>
+                        <img style="height: 100px; width: 140px;" src="https://simikrao.files.wordpress.com/2014/07/p1000967.jpg?w=768" alt="">
+                    </div>
+                    <div>Dal Mash with 2 Roti and Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/fSQx6dI1wTE/oar2.jpg" alt="">
+                    </div>
+                    <div>Chicken Biryani with Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/1SVrnd-iMJw/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Alo Anda Bojiya with 2 Roti and Raita<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.ytimg.com/vi/Ck5c907flYo/maxresdefault.jpg" alt="">
+                    </div>
+                    <div>Sabzi with 2 Roti<br><br>
+                        <img style="height: 100px; width: 140px;" src="https://i.redd.it/h26bcipl80la1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area -->
+    <section id="services" style="background-color: var(--accent); color: white;">
+        <div class="container">
+            <h2 style="color: white;">Service Areas</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">We deliver to these areas with free delivery within 3km of Allama Iqbal Town</p>
+            <div class="service-areas">
+                <div class="area-badge">Allama Iqbal Town</div>
+                <div class="area-badge">Wahdat Road</div>
+                <div class="area-badge">Muslim Town</div>
+                <div class="area-badge">Gulshan-e-Ravi</div>
+                <div class="area-badge">Ichra</div>
+                <div class="area-badge">Samanabad</div>
+                <div class="area-badge">Nearby Societies</div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>The Cooking Studio brings authentic homemade flavors to your doorstep. Our mission is to provide delicious, home-style meals with the convenience of delivery.</p>
+                    <p>"Jaisa Ghar Ka Swaad, Waisa Kahi Nahin!"</p>
+                    <div class="social-links">
+                        <a href="https://WA.me/+923435498483"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://vm.tiktok.com/ZSk9wapRS/"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                       <p><a href=" https://maps.app.goo.gl/kqNacibtLT56iReV9"><i class="fas fa-map-marker-alt"></i></a> Home number 6 street number 1 mohala bhekewal wahdat road lahore</p>
+                        <p><a href="tel:+923054834980"><i class="fas fa-phone"></i></a> 03054834980</p>
+                        <p><i class="fas fa-clock"></i> Open Daily: 10:00 AM - 12:00 AM</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#meal-plan">Weekly Plan</a></li>
+                        <li><a href="#offers">Special Offers</a></li>
+                        <li><a href="https://WA.me/+923435498483">Order Online</a></<li>
+                    </ul>
+                </div>
+                
+              
+            
+            <div class="copyright">
+                &copy; 2025 The Cooking Studio. All Rights Reserved. | Designed with ❤️ for Food Lovers
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Menu Category Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                // Show/hide menu items based on category
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Weekly Meal Plan Tabs
+        const weekBtns = document.querySelectorAll('.week-btn');
+        const planRows = document.querySelectorAll('.plan-row');
+        
+        weekBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                weekBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const week = btn.getAttribute('data-week');
+                
+                // Show/hide plan rows based on week
+                planRows.forEach(row => {
+                    if (row.classList.contains('week-' + week)) {
+                        row.style.display = 'grid';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll down button
+        document.querySelector('.scroll-down').addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight - 80,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
